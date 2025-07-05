@@ -1,26 +1,42 @@
-import { Header } from "./Components/header"
+import { useState } from "react"
+import { Header } from "./Components/Header"
 import { Entry } from "./Components/Entry"
-import data from "./data"
+import { EntryForm } from "./Components/EntryForm"
+import initialData from "./data"
 
 export function App() {
+    const [entries, setEntries] = useState(initialData)
 
-    const entryElements = data.map((entry) => {
-        return (
-            <Entry 
-                key={entry.id}
-              //  {...entry}
-                entry={entry}
-            />
-        )
-    })
+    function addEntry(newEntry) {
+        const newEntryWithId = {
+            ...newEntry,
+            id: entries.length + 1
+        }
+
+        setEntries(prevEntries => [newEntryWithId, ...prevEntries])
+    }
+
+    function deleteEntry(id) {
+        setEntries(prevEntries => prevEntries.filter(entry => entry.id !== id))
+    }
+
+
+    const entryElements = entries.map((entry) => (
+        <Entry 
+            key={entry.id}
+            entry={entry}
+            onDelete={deleteEntry}
+        />
+    ))
+
+
     return (
         <>
             <Header />
             <main className="container">
-
                 {entryElements}
-
             </main>
+            <EntryForm onAddEntry={addEntry} />
         </>
     )
 }

@@ -83,3 +83,94 @@ article.journal-entry .main-image {
     -webkit-box-orient: vertical;  
     overflow: hidden;
 }
+
+
+
+
+
+
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* full viewport height */
+}
+
+form {
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  margin: 30px auto;
+  background-color: #ffeaea;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+  box-sizing: border-box; /* just in case */
+}
+
+
+
+form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #d63447;
+}
+
+form input[type="text"],
+form input[type="file"],
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #d63447;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #b02a37;
+}
+
+form img {
+  display: block;
+  margin: 10px auto;
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+
+
+
+
+
